@@ -122,6 +122,11 @@ app.use(route(function(router) {
   router.post('/documents', function(request, response) {
     return documentHandler.handlePost(request, response);
   });
+  // add documents with id
+  router.post('/documents/:id', function(request, response) {
+    var key = request.params.id;
+    return documentHandler.handlePost(request, response, key);
+  });
   // get documents
   router.get('/documents/:id', function(request, response) {
     var key = request.params.id.split('.')[0];
